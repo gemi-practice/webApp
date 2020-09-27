@@ -1,0 +1,19 @@
+name: learn-github-actions
+on: pull_request
+    branches: [ master ]
+jobs:
+  build:
+    name: Test Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: My First Step
+      # This step references the directory that contains the action.
+      # uses: ./.github/actions/hello-world-action
+        env:
+          MY_VAR: Hello World! from yaml :)
+          FIRST_NAME: GEMI
+          LAST_NAME: THOMAS
+        run: |
+          echo $MY_VAR $FIRST_NAME $LAST_NAME
+          echo This is Github Build number $GITHUB_BUILD_NUMBER
+
